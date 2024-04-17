@@ -1,4 +1,4 @@
-package com.example.effectivemobileaviation.presentation.search
+package com.example.effectivemobileaviation.presentation.airTickets
 
 import android.os.Bundle
 import android.view.LayoutInflater
