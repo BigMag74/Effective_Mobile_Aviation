@@ -3,7 +3,10 @@ package com.example.effectivemobileaviation.util
 import com.example.domain.model.Price
 
 fun convertPriceToString(price: Price): String {
-    val startString = "от ${(price.value / 1000)} "
-    val endString = "${(price.value % 1000)} ₽"
-    return startString + endString
+    val firstPartOfNumber = (price.value / 1000)
+    var secondPartOfNumber = (price.value % 1000).toString()
+    while (secondPartOfNumber.length < 3) {
+        secondPartOfNumber += "0"
+    }
+    return "от $firstPartOfNumber $secondPartOfNumber ₽"
 }

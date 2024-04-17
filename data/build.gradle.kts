@@ -35,4 +35,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     implementation(project(":domain"))
 
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Gson
+    implementation (libs.gson)
+
 }

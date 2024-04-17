@@ -58,8 +58,12 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     // Glide
-
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
     kapt(libs.compiler)
+
+    // Koin
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    testImplementation(libs.koin.test)
 }
