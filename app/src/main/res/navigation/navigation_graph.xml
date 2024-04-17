@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/airTicketsFragment">
+    app:startDestination="@id/ticketsFragment">
 
     <fragment
-        android:id="@+id/airTicketsFragment"
+        android:id="@+id/ticketsFragment"
         android:name="com.example.effectivemobileaviation.presentation.search.AirTicketsFragment"
-        android:label="AirTicketsFragment" />
+        android:label="AirTicketsFragment"
+        tools:layout="@layout/fragment_air_tickets" />
+    <fragment
+        android:id="@+id/hotelsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.hotels.HotelFragment"
+        android:label="HotelFragment"
+        tools:layout="@layout/fragment_hotel" />
+    <fragment
+        android:id="@+id/shortlyFragment"
+        android:name="com.example.effectivemobileaviation.presentation.shortly.ShortlyFragment"
+        android:label="ShortlyFragment"
+        tools:layout="@layout/fragment_shortly" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.subscriptions.SubscriptionsFragment"
+        android:label="SubscriptionsFragment"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.effectivemobileaviation.presentation.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
