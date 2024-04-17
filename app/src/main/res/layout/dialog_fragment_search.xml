@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle_with_upper_corners">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/topView"
+            android:layout_width="38dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectangle_with_corners"
+            android:backgroundTint="@color/gray_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/gray_3"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toBottomOf="@id/topView"
+            tools:layout_editor_absoluteX="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iconBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_back"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iconPlane"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_plane"
+                    app:layout_constraintStart_toEndOf="@+id/iconBack"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTextFrom"
+                    style="@style/button_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/transparent"
+                    android:digits="абвгдеёжзийклмнопрстуфхцчшщъыьэюя - АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+                    android:hint="Откуда - Москва"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/gray_6"
+                    app:layout_constraintStart_toEndOf="@id/iconPlane"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_swap"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/separator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="16dp"
+                    android:background="@color/gray_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iconBack"
+                    app:layout_constraintTop_toBottomOf="@id/editTextFrom" />
+
+                <ImageView
+                    android:id="@+id/iconLoupe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_loupe"
+                    app:layout_constraintStart_toEndOf="@+id/iconBack"
+                    app:layout_constraintTop_toBottomOf="@id/separator" />
+
+                <EditText
+                    android:id="@+id/editTextTo"
+                    style="@style/button_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:digits="абвгдеёжзийклмнопрстуфхцчшщъыьэюя - АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+                    android:hint="Куда - Турция"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/gray_6"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iconLoupe"
+                    app:layout_constraintTop_toBottomOf="@id/separator" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_cross"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separator" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/iconDifficultRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_difficult_route"
+            app:layout_constraintEnd_toStartOf="@id/iconAnywhere"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/difficultRouteTV"
+            style="@style/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Сложный\nмаршрут"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/iconDifficultRoute"
+            app:layout_constraintStart_toStartOf="@+id/iconDifficultRoute"
+            app:layout_constraintTop_toBottomOf="@+id/iconDifficultRoute" />
+
+        <ImageView
+            android:id="@+id/iconAnywhere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_anywhere"
+            app:layout_constraintEnd_toStartOf="@id/iconWeekends"
+            app:layout_constraintStart_toEndOf="@id/iconDifficultRoute"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/AnywhereTV"
+            style="@style/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Куда угодно"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/iconAnywhere"
+            app:layout_constraintStart_toStartOf="@+id/iconAnywhere"
+            app:layout_constraintTop_toBottomOf="@+id/iconAnywhere" />
+
+        <ImageView
+            android:id="@+id/iconWeekends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_weekends"
+            app:layout_constraintEnd_toStartOf="@id/iconHotTickets"
+            app:layout_constraintStart_toEndOf="@id/iconAnywhere"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/WeekendsTV"
+            style="@style/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Выходные"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/iconWeekends"
+            app:layout_constraintStart_toStartOf="@+id/iconWeekends"
+            app:layout_constraintTop_toBottomOf="@+id/iconWeekends" />
+
+        <ImageView
+            android:id="@+id/iconHotTickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_hot_tickets"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconWeekends"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/HotTicketsTV"
+            style="@style/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Горячие\nбилеты"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/iconHotTickets"
+            app:layout_constraintStart_toStartOf="@+id/iconHotTickets"
+            app:layout_constraintTop_toBottomOf="@+id/iconHotTickets" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/gray_3"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toBottomOf="@id/HotTicketsTV">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/stambulIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/stambul"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/stambulTitleTV"
+                    style="@style/title_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Стамбул"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/stambulIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/stambulDescriptionTV"
+                    style="@style/text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Популярное направление"
+                    android:textColor="@color/gray_5"
+                    app:layout_constraintStart_toEndOf="@+id/stambulIV"
+                    app:layout_constraintTop_toBottomOf="@+id/stambulTitleTV" />
+
+                <View
+                    android:id="@+id/stambulSeparator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/gray_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stambulDescriptionTV" />
+
+                <ImageView
+                    android:id="@+id/sochiIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/sochi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stambulSeparator" />
+
+                <TextView
+                    android:id="@+id/sochiTitleTV"
+                    style="@style/title_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Стамбул"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/sochiIV"
+                    app:layout_constraintTop_toTopOf="@+id/sochiIV" />
+
+                <TextView
+                    android:id="@+id/sochiDescriptionTV"
+                    style="@style/text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Популярное направление"
+                    android:textColor="@color/gray_5"
+                    app:layout_constraintStart_toEndOf="@+id/sochiIV"
+                    app:layout_constraintTop_toBottomOf="@+id/sochiTitleTV" />
+
+                <View
+                    android:id="@+id/sochiSeparator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/gray_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sochiDescriptionTV" />
+
+                <ImageView
+                    android:id="@+id/phuketIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/phuket"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sochiSeparator" />
+
+                <TextView
+                    android:id="@+id/phuketTitleTV"
+                    style="@style/title_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Стамбул"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/phuketIV"
+                    app:layout_constraintTop_toTopOf="@+id/phuketIV" />
+
+                <TextView
+                    android:id="@+id/phuketDescriptionTV"
+                    style="@style/text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Популярное направление"
+                    android:textColor="@color/gray_5"
+                    app:layout_constraintStart_toEndOf="@+id/phuketIV"
+                    app:layout_constraintTop_toBottomOf="@+id/phuketTitleTV" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
