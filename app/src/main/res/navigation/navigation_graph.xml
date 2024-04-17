@@ -9,7 +9,11 @@
         android:id="@+id/ticketsFragment"
         android:name="com.example.effectivemobileaviation.presentation.airTickets.AirTicketsFragment"
         android:label="AirTicketsFragment"
-        tools:layout="@layout/fragment_air_tickets" />
+        tools:layout="@layout/fragment_air_tickets">
+        <action
+            android:id="@+id/action_ticketsFragment_to_searchDialogFragment"
+            app:destination="@id/searchDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hotelsFragment"
         android:name="com.example.effectivemobileaviation.presentation.hotels.HotelFragment"
@@ -30,4 +34,13 @@
         android:name="com.example.effectivemobileaviation.presentation.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/searchDialogFragment"
+        android:name="com.example.effectivemobileaviation.presentation.search.SearchDialogFragment"
+        android:label="SearchDialogFragment"
+        tools:layout="@layout/dialog_fragment_search">
+        <argument
+            android:name="countryFrom"
+            app:argType="string" />
+    </dialog>
 </navigation>

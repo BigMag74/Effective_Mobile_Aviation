@@ -8,9 +8,9 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DataSourceImpl(
+class NetworkDataSourceImpl(
     private val context: Context,
-) : DataSource {
+) : NetworkDataSource {
 
     override suspend fun doRequest(dto: Any): Response {
 

@@ -6,4 +6,8 @@ import kotlinx.coroutines.flow.Flow
 interface AirTicketsRepository {
 
     fun getFlyAwayMusicallyItems(): Flow<List<FlyAwayMusicallyModel>>
+
+    fun saveLastSearch(text: String)
+
+    fun getLastSearch(): String
 }

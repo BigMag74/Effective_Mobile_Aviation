@@ -65,7 +65,7 @@
                         android:digits="абвгдеёжзийклмнопрстуфхцчшщъыьэюя - АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
                         android:hint="Откуда - Москва"
                         android:inputType="text"
-                        android:maxLines="1"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textColorHint="@color/gray_6"
                         app:layout_constraintStart_toEndOf="@id/loupeIcon"
