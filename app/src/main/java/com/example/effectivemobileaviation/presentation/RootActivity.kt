@@ -3,10 +3,8 @@ package com.example.effectivemobileaviation.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.effectivemobileaviation.R
 import com.example.effectivemobileaviation.databinding.ActivityRootBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RootActivity : AppCompatActivity() {
 
@@ -17,11 +15,32 @@ class RootActivity : AppCompatActivity() {
         binding = ActivityRootBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navigationView: BottomNavigationView = binding.navigationView
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.rootFragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
 
-        navigationView.setupWithNavController(navController)
+        binding.navigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.ticketsFragment -> {
+                    navController.navigate(R.id.ticketsFragment)
+                }
+
+                R.id.hotelsFragment -> {
+                    navController.navigate(R.id.hotelsFragment)
+                }
+
+                R.id.shortlyFragment -> {
+                    navController.navigate(R.id.shortlyFragment)
+                }
+
+                R.id.subscriptionsFragment -> {
+                    navController.navigate(R.id.subscriptionsFragment)
+                }
+
+                R.id.profileFragment -> {
+                    navController.navigate(R.id.profileFragment)
+                }
+            }
+            true
+        }
     }
 }
