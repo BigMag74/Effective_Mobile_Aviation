@@ -45,7 +45,7 @@ class AirTicketsFragment : Fragment() {
 
             viewModel.saveLastSearch(lastSearchText)
 
-            val direction = AirTicketsFragmentDirections.actionTicketsFragmentToSearchDialogFragment(lastSearchText)
+            val direction = AirTicketsFragmentDirections.actionTicketsFragmentToSearchFragment(lastSearchText)
             findNavController().navigate(direction)
         }
     }

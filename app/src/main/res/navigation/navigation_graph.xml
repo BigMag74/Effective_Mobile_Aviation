@@ -11,8 +11,8 @@
         android:label="AirTicketsFragment"
         tools:layout="@layout/fragment_air_tickets">
         <action
-            android:id="@+id/action_ticketsFragment_to_searchDialogFragment"
-            app:destination="@id/searchDialogFragment" />
+            android:id="@+id/action_ticketsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/hotelsFragment"
@@ -34,13 +34,38 @@
         android:name="com.example.effectivemobileaviation.presentation.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
-    <dialog
-        android:id="@+id/searchDialogFragment"
-        android:name="com.example.effectivemobileaviation.presentation.search.SearchDialogFragment"
-        android:label="SearchDialogFragment"
-        tools:layout="@layout/dialog_fragment_search">
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.effectivemobileaviation.presentation.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
         <argument
             android:name="countryFrom"
+            android:defaultValue=""
             app:argType="string" />
-    </dialog>
+        <action
+            android:id="@+id/action_searchFragment_to_difficultRouteFragment"
+            app:destination="@id/difficultRouteFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_weekendsFragment"
+            app:destination="@id/weekendsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_hotTicketsFragment"
+            app:destination="@id/hotTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultRouteFragment"
+        android:name="com.example.effectivemobileaviation.presentation.difficultRoute.DifficultRouteFragment"
+        android:label="DifficultRouteFragment"
+        tools:layout="@layout/fragment_difficult_route" />
+    <fragment
+        android:id="@+id/weekendsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.weekends.WeekendsFragment"
+        android:label="WeekendsFragment"
+        tools:layout="@layout/fragment_weekends" />
+    <fragment
+        android:id="@+id/hotTicketsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.hotTickets.HotTicketsFragment"
+        android:label="HotTicketsFragment"
+        tools:layout="@layout/fragment_hot_tickets" />
 </navigation>
