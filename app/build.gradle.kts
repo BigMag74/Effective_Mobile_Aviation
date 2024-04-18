@@ -67,4 +67,8 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     testImplementation(libs.koin.test)
+
+    // AdapterDelegates
+    implementation(libs.adapterdelegates4.kotlin.dsl)
+    implementation(libs.adapterdelegates4.kotlin.dsl.viewbinding)
 }

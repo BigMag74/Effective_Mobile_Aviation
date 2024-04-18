@@ -62,34 +62,5 @@ class SearchFragment : Fragment() {
         binding.hotTicketsTV.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_hotTicketsFragment)
         }
-
-        binding.stambulIV.setOnClickListener {
-            binding.editTextTo.setText(binding.stambulTitleTV.text)
-        }
-        binding.stambulTitleTV.setOnClickListener {
-            binding.editTextTo.setText(binding.stambulTitleTV.text)
-        }
-        binding.stambulDescriptionTV.setOnClickListener {
-            binding.editTextTo.setText(binding.stambulTitleTV.text)
-        }
-        binding.sochiIV.setOnClickListener {
-            binding.editTextTo.setText(binding.sochiTitleTV.text)
-        }
-        binding.sochiTitleTV.setOnClickListener {
-            binding.editTextTo.setText(binding.sochiTitleTV.text)
-        }
-        binding.sochiDescriptionTV.setOnClickListener {
-            binding.editTextTo.setText(binding.sochiTitleTV.text)
-        }
-
-        binding.phuketIV.setOnClickListener {
-            binding.editTextTo.setText(binding.phuketTitleTV.text)
-        }
-        binding.phuketTitleTV.setOnClickListener {
-            binding.editTextTo.setText(binding.phuketTitleTV.text)
-        }
-        binding.phuketDescriptionTV.setOnClickListener {
-            binding.editTextTo.setText(binding.phuketTitleTV.text)
-        }
     }
 }

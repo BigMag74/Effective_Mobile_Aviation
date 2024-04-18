@@ -228,6 +228,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iconHotTickets" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/recyclerCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -241,122 +242,57 @@
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
-                <ImageView
-                    android:id="@+id/stambulIV"
+                <TextView
+                    android:id="@+id/directFlightsTV"
+                    style="@style/title_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/stambul"
+                    android:text="Прямые рейсы"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/stambulTitleTV"
-                    style="@style/title_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Стамбул"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toEndOf="@id/stambulIV"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/stambulDescriptionTV"
-                    style="@style/text_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Популярное направление"
-                    android:textColor="@color/gray_5"
-                    app:layout_constraintStart_toEndOf="@+id/stambulIV"
-                    app:layout_constraintTop_toBottomOf="@+id/stambulTitleTV" />
-
-                <View
-                    android:id="@+id/stambulSeparator"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/gray_4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/stambulDescriptionTV" />
-
-                <ImageView
-                    android:id="@+id/sochiIV"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/searchRV"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/sochi"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/stambulSeparator" />
+                    app:layout_constraintTop_toBottomOf="@+id/directFlightsTV"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_popular_destination" />
 
                 <TextView
-                    android:id="@+id/sochiTitleTV"
-                    style="@style/title_3"
-                    android:layout_width="wrap_content"
+                    style="@style/button_text1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Сочи"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toEndOf="@id/sochiIV"
-                    app:layout_constraintTop_toTopOf="@+id/sochiIV" />
-
-                <TextView
-                    android:id="@+id/sochiDescriptionTV"
-                    style="@style/text_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Популярное направление"
-                    android:textColor="@color/gray_5"
-                    app:layout_constraintStart_toEndOf="@+id/sochiIV"
-                    app:layout_constraintTop_toBottomOf="@+id/sochiTitleTV" />
-
-                <View
-                    android:id="@+id/sochiSeparator"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/gray_4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sochiDescriptionTV" />
-
-                <ImageView
-                    android:id="@+id/phuketIV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/phuket"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sochiSeparator" />
-
-                <TextView
-                    android:id="@+id/phuketTitleTV"
-                    style="@style/title_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Пхукет"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toEndOf="@id/phuketIV"
-                    app:layout_constraintTop_toTopOf="@+id/phuketIV" />
-
-                <TextView
-                    android:id="@+id/phuketDescriptionTV"
-                    style="@style/text_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Популярное направление"
-                    android:textColor="@color/gray_5"
-                    app:layout_constraintStart_toEndOf="@+id/phuketIV"
-                    app:layout_constraintTop_toBottomOf="@+id/phuketTitleTV" />
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    android:text="Показать все"
+                    android:textColor="@color/blue"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchRV" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/rectangle_with_corners"
+            android:backgroundTint="@color/blue"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Посмотреть все билеты"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerCardView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

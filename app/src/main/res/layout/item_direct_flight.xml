@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp">
+
+    <ImageView
+        android:id="@+id/circleIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/blue" />
+
+    <TextView
+        android:id="@+id/airlineTV"
+        style="@style/title_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/circleIV"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Уральские авиалинии" />
+
+    <TextView
+        android:id="@+id/timeTV"
+        style="@style/text_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/circleIV"
+        app:layout_constraintTop_toBottomOf="@id/airlineTV"
+        tools:text="7:00 9:10 10:00 11:00 12:00 13:00" />
+
+    <ImageView
+        android:id="@+id/arrowForwardIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_forward"
+        app:layout_constraintBottom_toBottomOf="@+id/priceTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/priceTV" />
+
+    <TextView
+        android:id="@+id/priceTV"
+        style="@style/title_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toStartOf="@id/arrowForwardIV"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2 390 ₽" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/gray_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

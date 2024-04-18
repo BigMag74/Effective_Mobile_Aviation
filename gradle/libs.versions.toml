@@ -1,4 +1,5 @@
 [versions]
+adapterdelegates4KotlinDsl = "4.3.2"
 agp = "8.3.0"
 fragmentKtx = "1.6.2"
 glide = "4.16.0"
@@ -19,6 +20,8 @@ navigationFragmentKtx = "2.7.7"
 retrofit = "2.10.0"
 
 [libraries]
+adapterdelegates4-kotlin-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version.ref = "adapterdelegates4KotlinDsl" }
+adapterdelegates4-kotlin-dsl-viewbinding = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapterdelegates4KotlinDsl" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
