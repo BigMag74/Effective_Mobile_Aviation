@@ -102,6 +102,10 @@ class SearchFragment : Fragment() {
             binding.calendarCardView.visibility = VISIBLE
             isDepartureCalendar = true
         }
+        binding.allTicketsTV.setOnClickListener {
+            val direction = SearchFragmentDirections.actionSearchFragmentToAllTicketsFragment()
+            findNavController().navigate(direction)
+        }
     }
 
     private fun initializeEditTextToListeners() {
@@ -143,6 +147,9 @@ class SearchFragment : Fragment() {
                 )
                 constraintSet.applyTo(binding.rootConstraintLayout)
 
+                binding.root.background.setTint(requireContext().getColor(R.color.gray_2))
+                binding.recyclerCardView.background.setTint(requireContext().getColor(R.color.gray_3))
+
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()
 
@@ -152,6 +159,7 @@ class SearchFragment : Fragment() {
                 binding.horizontalScrollView.visibility = GONE
                 binding.allTicketsTV.visibility = GONE
 
+                binding.topView.visibility = VISIBLE
                 binding.iconPlane.visibility = VISIBLE
                 binding.iconLoupe.visibility = VISIBLE
                 binding.difficultRouteTV.visibility = VISIBLE
@@ -173,6 +181,9 @@ class SearchFragment : Fragment() {
                 )
                 constraintSet.applyTo(binding.rootConstraintLayout)
 
+                binding.root.background.setTint(requireContext().getColor(R.color.black))
+                binding.recyclerCardView.background.setTint(requireContext().getColor(R.color.gray_1))
+
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()
 
@@ -182,6 +193,7 @@ class SearchFragment : Fragment() {
                 binding.directFlightsTV.visibility = VISIBLE
                 binding.allTicketsTV.visibility = VISIBLE
 
+                binding.topView.visibility = INVISIBLE
                 binding.iconPlane.visibility = GONE
                 binding.iconLoupe.visibility = GONE
                 binding.difficultRouteTV.visibility = GONE
@@ -199,6 +211,7 @@ class SearchFragment : Fragment() {
     companion object {
 
         const val VISIBLE = View.VISIBLE
+        const val INVISIBLE = View.INVISIBLE
         const val GONE = View.GONE
     }
 }

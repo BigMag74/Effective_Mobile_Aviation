@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_searchFragment_to_hotTicketsFragment"
             app:destination="@id/hotTicketsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_allTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
     </fragment>
     <fragment
         android:id="@+id/difficultRouteFragment"
@@ -70,4 +73,30 @@
         android:name="com.example.effectivemobileaviation.presentation.hotTickets.HotTicketsFragment"
         android:label="HotTicketsFragment"
         tools:layout="@layout/fragment_hot_tickets" />
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.allTickets.AllTicketsFragment"
+        android:label="AllTicketsFragment"
+        tools:layout="@layout/fragment_all_tickets">
+        <argument
+            android:name="cityFrom"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="cityTo"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="passengersCount"
+            android:defaultValue="1"
+            app:argType="integer" />
+        <argument
+            android:name="dateDay"
+            android:defaultValue="1"
+            app:argType="integer" />
+        <argument
+            android:name="dateMonth"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
 </navigation>
