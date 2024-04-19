@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.data.R
 import com.example.data.airTickets.FlyAwayMusicallyRequest
 import com.example.data.airTickets.FlyAwayMusicallyResponse
+import com.example.data.allTickets.AllTicketsRequest
+import com.example.data.allTickets.AllTicketsResponse
 import com.example.data.search.DirectFlightsRequest
 import com.example.data.search.DirectFlightsResponse
 import com.google.gson.Gson
@@ -34,6 +36,18 @@ class NetworkDataSourceImpl(
                     val jsonElement =
                         context.resources.openRawResource(R.raw.offers_tickets).bufferedReader().use { it.readText() }
                     val response = Gson().fromJson(jsonElement, DirectFlightsResponse::class.java)
+                    response.apply { resultCode = 200 }
+                } catch (e: Throwable) {
+                    Response().apply { resultCode = 500 }
+                }
+            }
+        }
+        if (dto is AllTicketsRequest) {
+            return withContext(Dispatchers.IO) {
+                try {
+                    val jsonElement =
+                        context.resources.openRawResource(R.raw.tickets).bufferedReader().use { it.readText() }
+                    val response = Gson().fromJson(jsonElement, AllTicketsResponse::class.java)
                     response.apply { resultCode = 200 }
                 } catch (e: Throwable) {
                     Response().apply { resultCode = 500 }
