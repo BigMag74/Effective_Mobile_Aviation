@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
                 android:src="@drawable/ic_swap"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
                 android:src="@drawable/ic_cross"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -151,6 +153,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_with_corners_16"
                     android:backgroundTint="@color/gray_3"
+                    android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="8dp"
@@ -178,6 +181,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_with_corners_16"
                     android:backgroundTint="@color/gray_3"
+                    android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp"
@@ -211,6 +215,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_with_corners_16"
                     android:backgroundTint="@color/gray_3"
+                    android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp"
@@ -239,6 +244,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:background="@drawable/rectangle_with_corners_16"
                     android:backgroundTint="@color/gray_3"
+                    android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp"
@@ -268,6 +274,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_difficult_route"
             app:layout_constraintEnd_toStartOf="@id/iconAnywhere"
             app:layout_constraintStart_toStartOf="parent"
@@ -291,6 +298,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_anywhere"
             app:layout_constraintEnd_toStartOf="@id/iconWeekends"
             app:layout_constraintStart_toEndOf="@id/iconDifficultRoute"
@@ -314,6 +322,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_weekends"
             app:layout_constraintEnd_toStartOf="@id/iconHotTickets"
             app:layout_constraintStart_toEndOf="@id/iconAnywhere"
@@ -337,6 +346,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_hot_tickets"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iconWeekends"
@@ -398,16 +408,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/rectangle_with_corners_16"
+            android:background="@drawable/rectangle_with_corners_8"
             android:backgroundTint="@color/blue"
             android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="16dp"
             android:text="Посмотреть все билеты"
             android:textColor="@color/white"
             android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/recyclerConstraintLayout"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/subscriptionConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/rectangle_with_corners_8"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerConstraintLayout" />
+            app:layout_constraintTop_toBottomOf="@id/allTicketsTV">
+
+            <ImageView
+                android:id="@+id/subscriptionIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_subscriptions"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/blue" />
+
+            <TextView
+                style="@style/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Подписка на цену"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/subscriptionIV"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                style="@style/switchStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <CalendarView
             android:id="@+id/calendarView"

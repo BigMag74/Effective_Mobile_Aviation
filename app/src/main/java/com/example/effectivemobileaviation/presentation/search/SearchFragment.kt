@@ -165,6 +165,7 @@ class SearchFragment : Fragment() {
                 binding.directFlightsTV.visibility = GONE
                 binding.horizontalScrollView.visibility = GONE
                 binding.allTicketsTV.visibility = GONE
+                binding.subscriptionConstraintLayout.visibility = GONE
 
                 binding.topView.visibility = VISIBLE
                 binding.iconPlane.visibility = VISIBLE
@@ -199,6 +200,7 @@ class SearchFragment : Fragment() {
                 binding.horizontalScrollView.visibility = VISIBLE
                 binding.directFlightsTV.visibility = VISIBLE
                 binding.allTicketsTV.visibility = VISIBLE
+                binding.subscriptionConstraintLayout.visibility = VISIBLE
 
                 binding.topView.visibility = INVISIBLE
                 binding.iconPlane.visibility = GONE
