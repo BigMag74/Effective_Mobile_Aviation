@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.effectivemobileaviation.databinding.FragmentAirTicketsBinding
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 
 class AirTicketsFragment : Fragment() {
 
@@ -16,7 +17,7 @@ class AirTicketsFragment : Fragment() {
 
     private val viewModel: AirTicketsViewModel by viewModel()
 
-    private val flyAwayMusicallyAdapter by lazy { FlyAwayMusicallyAdapter() }
+    private val flyAwayMusicallyAdapter by lazy { ListDelegationAdapter(flyAwayMusicallyAdapter()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAirTicketsBinding.inflate(inflater, container, false)

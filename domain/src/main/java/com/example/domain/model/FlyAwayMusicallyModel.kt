@@ -5,4 +5,4 @@ data class FlyAwayMusicallyModel(
     val title: String,
     val town: String,
     val price: Price,
-)
+) : ListItem
