@@ -96,10 +96,10 @@ class SearchFragment : Fragment() {
         }
 
         binding.returnTicketDate.setOnClickListener {
-            binding.calendarCardView.visibility = VISIBLE
+            binding.calendarView.visibility = VISIBLE
         }
-        binding.departureDateCardView.setOnClickListener {
-            binding.calendarCardView.visibility = VISIBLE
+        binding.departureDate.setOnClickListener {
+            binding.calendarView.visibility = VISIBLE
             isDepartureCalendar = true
         }
         binding.allTicketsTV.setOnClickListener {
@@ -138,15 +138,16 @@ class SearchFragment : Fragment() {
                 viewModel.setDepartureDate(year, month, dayOfMonth)
             }
             isDepartureCalendar = false
-            binding.calendarCardView.visibility = GONE
+            binding.calendarView.visibility = GONE
         }
     }
 
     private fun renderState(state: SearchState) {
+        binding.calendarView.visibility = GONE
         when (state) {
             is SearchState.EmptyCountryTo -> {
                 constraintSet.connect(
-                    R.id.recyclerCardView,
+                    R.id.recyclerConstraintLayout,
                     ConstraintSet.TOP,
                     R.id.hotTicketsTV,
                     ConstraintSet.BOTTOM
@@ -154,7 +155,7 @@ class SearchFragment : Fragment() {
                 constraintSet.applyTo(binding.rootConstraintLayout)
 
                 binding.root.background.setTint(requireContext().getColor(R.color.gray_2))
-                binding.recyclerCardView.background.setTint(requireContext().getColor(R.color.gray_3))
+                binding.recyclerConstraintLayout.background.setTint(requireContext().getColor(R.color.gray_3))
 
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()
@@ -180,7 +181,7 @@ class SearchFragment : Fragment() {
 
             is SearchState.FilledCountryTo -> {
                 constraintSet.connect(
-                    R.id.recyclerCardView,
+                    R.id.recyclerConstraintLayout,
                     ConstraintSet.TOP,
                     R.id.horizontalScrollView,
                     ConstraintSet.BOTTOM
@@ -188,7 +189,7 @@ class SearchFragment : Fragment() {
                 constraintSet.applyTo(binding.rootConstraintLayout)
 
                 binding.root.background.setTint(requireContext().getColor(R.color.black))
-                binding.recyclerCardView.background.setTint(requireContext().getColor(R.color.gray_1))
+                binding.recyclerConstraintLayout.background.setTint(requireContext().getColor(R.color.gray_1))
 
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()

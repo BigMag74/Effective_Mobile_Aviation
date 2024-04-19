@@ -14,7 +14,7 @@ fun allTicketsAdapter() = adapterDelegateViewBinding<TicketFullInfo, ListItem, I
 ) {
     bind {
         if (!item.badge.isNullOrEmpty()) {
-            binding.badgeContainer.visibility = View.VISIBLE
+            binding.badgeTV.visibility = View.VISIBLE
             binding.badgeTV.text = item.badge
         }
         binding.priceTV.text = convertPriceToString(item.price)

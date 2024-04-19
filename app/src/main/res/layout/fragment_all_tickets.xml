@@ -67,7 +67,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_with_corners"
+        android:background="@drawable/rectangle_with_corners_16"
         android:backgroundTint="@color/blue"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
