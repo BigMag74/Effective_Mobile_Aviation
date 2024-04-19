@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/ticketsFragment">
+
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.airTickets.AirTicketsFragment"
+        android:label="AirTicketsFragment"
+        tools:layout="@layout/fragment_air_tickets">
+        <action
+            android:id="@+id/action_ticketsFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_in_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.hotels.HotelFragment"
+        android:label="HotelFragment"
+        tools:layout="@layout/fragment_hotel" />
+    <fragment
+        android:id="@+id/shortlyFragment"
+        android:name="com.example.effectivemobileaviation.presentation.shortly.ShortlyFragment"
+        android:label="ShortlyFragment"
+        tools:layout="@layout/fragment_shortly" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.subscriptions.SubscriptionsFragment"
+        android:label="SubscriptionsFragment"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.effectivemobileaviation.presentation.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.effectivemobileaviation.presentation.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="countryFrom"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_difficultRouteFragment"
+            app:destination="@id/difficultRouteFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_weekendsFragment"
+            app:destination="@id/weekendsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_hotTicketsFragment"
+            app:destination="@id/hotTicketsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_allTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultRouteFragment"
+        android:name="com.example.effectivemobileaviation.presentation.difficultRoute.DifficultRouteFragment"
+        android:label="DifficultRouteFragment"
+        tools:layout="@layout/fragment_difficult_route" />
+    <fragment
+        android:id="@+id/weekendsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.weekends.WeekendsFragment"
+        android:label="WeekendsFragment"
+        tools:layout="@layout/fragment_weekends" />
+    <fragment
+        android:id="@+id/hotTicketsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.hotTickets.HotTicketsFragment"
+        android:label="HotTicketsFragment"
+        tools:layout="@layout/fragment_hot_tickets" />
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="com.example.effectivemobileaviation.presentation.allTickets.AllTicketsFragment"
+        android:label="AllTicketsFragment"
+        tools:layout="@layout/fragment_all_tickets">
+        <argument
+            android:name="cityFrom"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="cityTo"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="passengersCount"
+            android:defaultValue="1"
+            app:argType="integer" />
+        <argument
+            android:name="dateDay"
+            android:defaultValue="1"
+            app:argType="integer" />
+        <argument
+            android:name="dateMonth"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+</navigation>
