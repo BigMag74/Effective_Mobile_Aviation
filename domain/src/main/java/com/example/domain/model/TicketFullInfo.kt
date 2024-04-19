@@ -7,4 +7,4 @@ data class TicketFullInfo(
     val departure: DepartureAndArrival,
     val arrival: DepartureAndArrival,
     val hasTransfer: Boolean,
-)
+) : ListItem

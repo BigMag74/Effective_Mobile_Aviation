@@ -17,13 +17,14 @@
         tools:backgroundTint="@color/blue" />
 
     <TextView
-        android:textStyle="italic"
         android:id="@+id/airlineTV"
         style="@style/title_4"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/priceTV"
         app:layout_constraintStart_toEndOf="@id/circleIV"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Уральские авиалинии" />
