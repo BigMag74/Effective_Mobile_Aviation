@@ -96,7 +96,7 @@
             app:argType="integer" />
         <argument
             android:name="dateMonth"
-            android:defaultValue=""
-            app:argType="string" />
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 </navigation>

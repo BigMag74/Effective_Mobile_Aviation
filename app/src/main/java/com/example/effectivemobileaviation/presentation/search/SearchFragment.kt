@@ -103,7 +103,13 @@ class SearchFragment : Fragment() {
             isDepartureCalendar = true
         }
         binding.allTicketsTV.setOnClickListener {
-            val direction = SearchFragmentDirections.actionSearchFragmentToAllTicketsFragment()
+            val direction = SearchFragmentDirections.actionSearchFragmentToAllTicketsFragment(
+                cityFrom = binding.editTextFrom.text.toString(),
+                cityTo = binding.editTextTo.text.toString(),
+                passengersCount = 1,
+                dateDay = viewModel.departureDay,
+                dateMonth = viewModel.departureMonth
+            )
             findNavController().navigate(direction)
         }
     }

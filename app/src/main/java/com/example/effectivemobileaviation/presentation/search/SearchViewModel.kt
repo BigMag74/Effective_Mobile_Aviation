@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.model.PopularDirectionModel
 import com.example.domain.search.useCases.GetDirectFlightsUseCase
 import com.example.effectivemobileaviation.util.convertDayOfTheWeekIdToString
-import com.example.effectivemobileaviation.util.convertMonthIdToString
+import com.example.effectivemobileaviation.util.convertMonthIdToStringShort
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -20,6 +20,9 @@ class SearchViewModel(
 
     private val _departureDateState = MutableLiveData<Pair<String, String>>()
     val departureDateState: LiveData<Pair<String, String>> = _departureDateState
+
+    var departureMonth: Int = 0
+    var departureDay: Int = 1
 
     private val popularDirections = listOf(
         PopularDirectionModel("Стамбул", 1),
@@ -57,9 +60,12 @@ class SearchViewModel(
 
     private fun setDepartureDateStateByCalendar(calendar: Calendar) {
         val currentNumber = calendar.get(Calendar.DAY_OF_MONTH)
-        val currentMonth = convertMonthIdToString(calendar.get(Calendar.MONTH))
+        departureDay = currentNumber
+        val currentMonth = calendar.get(Calendar.MONTH)
+        departureMonth = currentMonth
+        val currentMonthString = convertMonthIdToStringShort(currentMonth)
         val currentDayOfTheWeek = convertDayOfTheWeekIdToString(calendar.get(Calendar.DAY_OF_WEEK))
-        _departureDateState.value = Pair("$currentNumber $currentMonth", ", $currentDayOfTheWeek")
+        _departureDateState.value = Pair("$currentNumber $currentMonthString", ", $currentDayOfTheWeek")
     }
 
     private fun setState(state: SearchState) {

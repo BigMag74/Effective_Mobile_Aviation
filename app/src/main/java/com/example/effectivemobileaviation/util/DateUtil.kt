@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-fun convertMonthIdToString(id: Int): String {
+fun convertMonthIdToStringShort(id: Int): String {
     return when (id) {
         0 -> {
             "янв"
@@ -52,6 +52,58 @@ fun convertMonthIdToString(id: Int): String {
 
         else -> {
             "дек"
+        }
+    }
+}
+
+fun convertMonthIdToStringFull(id: Int): String {
+    return when (id) {
+        0 -> {
+            "января"
+        }
+
+        1 -> {
+            "февраля"
+        }
+
+        2 -> {
+            "марта"
+        }
+
+        3 -> {
+            "апреля"
+        }
+
+        4 -> {
+            "мая"
+        }
+
+        5 -> {
+            "июня"
+        }
+
+        6 -> {
+            "июля"
+        }
+
+        7 -> {
+            "августа"
+        }
+
+        8 -> {
+            "сентября"
+        }
+
+        9 -> {
+            "октября"
+        }
+
+        10 -> {
+            "ноября"
+        }
+
+        else -> {
+            "декбря"
         }
     }
 }

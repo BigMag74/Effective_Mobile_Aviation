@@ -37,6 +37,7 @@
             tools:text="Москва-Сочи" />
 
         <TextView
+            android:id="@+id/dateAndPassengers"
             style="@style/title_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
