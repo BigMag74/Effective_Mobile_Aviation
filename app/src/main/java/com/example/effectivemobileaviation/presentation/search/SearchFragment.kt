@@ -1,7 +1,6 @@
 package com.example.effectivemobileaviation.presentation.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,6 @@ class SearchFragment : Fragment() {
             PopularDirectionModel("Пхукет", 3),
         )
         binding.searchRV.adapter = adapter
-        Log.e("mytag", adapter.items.toString())
         adapter.notifyDataSetChanged()
     }
 

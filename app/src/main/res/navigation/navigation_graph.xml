@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_air_tickets">
         <action
             android:id="@+id/action_ticketsFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_in_bottom" />
     </fragment>
     <fragment
         android:id="@+id/hotelsFragment"
