@@ -1,4 +1,4 @@
-package com.example.effectivemobileaviation.di
+package com.example.effectivemobileaviation.di.airTickets
 
 import com.example.domain.airTickets.useCases.GetFlyAwayMusicallyItemsUseCase
 import com.example.domain.airTickets.useCases.GetLastSearchUseCase

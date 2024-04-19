@@ -6,7 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.PopularDirectionModel
 import com.example.domain.search.useCases.GetDirectFlightsUseCase
+import com.example.effectivemobileaviation.util.convertDayOfTheWeekIdToString
+import com.example.effectivemobileaviation.util.convertMonthIdToString
 import kotlinx.coroutines.launch
+import java.util.Calendar
 
 class SearchViewModel(
     private val getDirectFlightsUseCase: GetDirectFlightsUseCase
@@ -14,6 +17,9 @@ class SearchViewModel(
 
     private val _state = MutableLiveData<SearchState>()
     val state: LiveData<SearchState> = _state
+
+    private val _departureDateState = MutableLiveData<Pair<String, String>>()
+    val departureDateState: LiveData<Pair<String, String>> = _departureDateState
 
     private val popularDirections = listOf(
         PopularDirectionModel("Стамбул", 1),
@@ -23,6 +29,7 @@ class SearchViewModel(
 
     init {
         setEmptyState()
+        initDepartureDate()
     }
 
     fun setFilledState() {
@@ -35,6 +42,24 @@ class SearchViewModel(
 
     fun setEmptyState() {
         setState(SearchState.EmptyCountryTo(popularDirections))
+    }
+
+    private fun initDepartureDate() {
+        val calendar = Calendar.getInstance()
+        setDepartureDateStateByCalendar(calendar)
+    }
+
+    fun setDepartureDate(year: Int, month: Int, dayOfMonth: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, dayOfMonth)
+        setDepartureDateStateByCalendar(calendar)
+    }
+
+    private fun setDepartureDateStateByCalendar(calendar: Calendar) {
+        val currentNumber = calendar.get(Calendar.DAY_OF_MONTH)
+        val currentMonth = convertMonthIdToString(calendar.get(Calendar.MONTH))
+        val currentDayOfTheWeek = convertDayOfTheWeekIdToString(calendar.get(Calendar.DAY_OF_WEEK))
+        _departureDateState.value = Pair("$currentNumber $currentMonth", ", $currentDayOfTheWeek")
     }
 
     private fun setState(state: SearchState) {

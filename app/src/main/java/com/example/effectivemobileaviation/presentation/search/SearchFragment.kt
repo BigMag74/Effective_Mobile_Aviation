@@ -6,16 +6,16 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.effectivemobileaviation.R
 import com.example.effectivemobileaviation.databinding.FragmentSearchBinding
 import com.example.effectivemobileaviation.presentation.search.adapters.directFlightsAdapter
 import com.example.effectivemobileaviation.presentation.search.adapters.popularDirectionAdapter
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
 
@@ -23,15 +23,16 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: SearchViewModel by viewModel()
-
     private val args: SearchFragmentArgs by navArgs()
-
     private val adapter by lazy {
         ListDelegationAdapter(
             directFlightsAdapter(),
             popularDirectionAdapter { binding.editTextTo.setText(it) }
         )
     }
+    private val constraintSet by lazy { ConstraintSet().apply { clone(binding.rootConstraintLayout) } }
+
+    private var isDepartureCalendar = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -47,9 +48,14 @@ class SearchFragment : Fragment() {
         viewModel.state.observe(viewLifecycleOwner) {
             renderState(it)
         }
+        viewModel.departureDateState.observe(viewLifecycleOwner) {
+            binding.departureDateNumber.text = it.first
+            binding.departureDateDayOfTheWeek.text = it.second
+        }
 
         setOnClickListeners()
         initializeEditTextToListeners()
+        setOnDateChangeListener()
     }
 
     override fun onResume() {
@@ -58,6 +64,12 @@ class SearchFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
+        binding.iconSwap.setOnClickListener {
+            val textFrom = binding.editTextFrom.text
+            binding.editTextFrom.text = binding.editTextTo.text
+            binding.editTextTo.text = textFrom
+        }
+
         binding.iconDifficultRoute.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_difficultRouteFragment)
         }
@@ -82,19 +94,19 @@ class SearchFragment : Fragment() {
         binding.hotTicketsTV.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_hotTicketsFragment)
         }
+
+        binding.returnTicketDate.setOnClickListener {
+            binding.calendarCardView.visibility = VISIBLE
+        }
+        binding.departureDateCardView.setOnClickListener {
+            binding.calendarCardView.visibility = VISIBLE
+            isDepartureCalendar = true
+        }
     }
 
     private fun initializeEditTextToListeners() {
-        binding.editTextTo.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE && binding.editTextTo.text.isNotEmpty()) {
-                viewModel.setFilledState()
-            }
-            false
-        }
-
         binding.editTextTo.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.isNullOrEmpty())
                     viewModel.setEmptyState()
@@ -110,15 +122,34 @@ class SearchFragment : Fragment() {
         }
     }
 
+    private fun setOnDateChangeListener() {
+        binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            if (isDepartureCalendar) {
+                viewModel.setDepartureDate(year, month, dayOfMonth)
+            }
+            isDepartureCalendar = false
+            binding.calendarCardView.visibility = GONE
+        }
+    }
+
     private fun renderState(state: SearchState) {
         when (state) {
             is SearchState.EmptyCountryTo -> {
+                constraintSet.connect(
+                    R.id.recyclerCardView,
+                    ConstraintSet.TOP,
+                    R.id.hotTicketsTV,
+                    ConstraintSet.BOTTOM
+                )
+                constraintSet.applyTo(binding.rootConstraintLayout)
+
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()
 
                 binding.iconBack.visibility = GONE
                 binding.iconSwap.visibility = GONE
-                // TODO chipsVisibility
+                binding.directFlightsTV.visibility = GONE
+                binding.horizontalScrollView.visibility = GONE
                 binding.allTicketsTV.visibility = GONE
 
                 binding.iconPlane.visibility = VISIBLE
@@ -134,12 +165,21 @@ class SearchFragment : Fragment() {
             }
 
             is SearchState.FilledCountryTo -> {
+                constraintSet.connect(
+                    R.id.recyclerCardView,
+                    ConstraintSet.TOP,
+                    R.id.horizontalScrollView,
+                    ConstraintSet.BOTTOM
+                )
+                constraintSet.applyTo(binding.rootConstraintLayout)
+
                 adapter.items = state.content
                 adapter.notifyDataSetChanged()
 
                 binding.iconBack.visibility = VISIBLE
                 binding.iconSwap.visibility = VISIBLE
-                // TODO chipsVisibility
+                binding.horizontalScrollView.visibility = VISIBLE
+                binding.directFlightsTV.visibility = VISIBLE
                 binding.allTicketsTV.visibility = VISIBLE
 
                 binding.iconPlane.visibility = GONE

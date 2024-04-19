@@ -1,4 +1,4 @@
-package com.example.effectivemobileaviation.di
+package com.example.effectivemobileaviation.di.search
 
 import com.example.data.search.SearchRepositoryImpl
 import com.example.domain.search.SearchRepository

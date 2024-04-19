@@ -1,11 +1,11 @@
 package com.example.effectivemobileaviation.presentation.search.adapters
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
 import com.example.domain.model.ListItem
 import com.example.domain.model.Ticket
 import com.example.effectivemobileaviation.R
 import com.example.effectivemobileaviation.databinding.ItemDirectFlightBinding
+import com.example.effectivemobileaviation.util.convertListToString
 import com.example.effectivemobileaviation.util.convertPriceToString
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
@@ -15,19 +15,19 @@ fun directFlightsAdapter() = adapterDelegateViewBinding<Ticket, ListItem, ItemDi
 ) {
     bind {
         binding.airlineTV.text = item.title
-        binding.timeTV.text = item.timeRange.toString()
+        binding.timeTV.text = convertListToString(item.timeRange)
         binding.priceTV.text = convertPriceToString(item.price)
-        when (itemId) {
-            0L -> {
-                binding.circleIV.imageTintList = ColorStateList.valueOf(R.color.red)
+        when (layoutPosition) {
+            0 -> {
+                binding.circleIV.background.setTint(getColor(R.color.red))
             }
 
-            1L -> {
-                binding.circleIV.imageTintList = ColorStateList.valueOf(R.color.blue)
+            1 -> {
+                binding.circleIV.background.setTint(getColor(R.color.blue))
             }
 
-            2L -> {
-                binding.circleIV.imageTintList = ColorStateList.valueOf(R.color.white)
+            2 -> {
+                binding.circleIV.background.setTint(getColor(R.color.white))
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.effectivemobileaviation.di
+package com.example.effectivemobileaviation.di.airTickets
 
 import android.content.Context
 import android.content.SharedPreferences
